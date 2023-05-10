@@ -11,10 +11,10 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoAiesec from '@/images/logos/a.png'
+import logoItam from '@/images/logos/itam.png'
+import logoDeepDive from '@/images/logos/dd.png'
+import logoAnalysicNabla from '@/images/logos/an.jpg'
 import image1 from '@/images/photos/image-1.jpeg'
 import image2 from '@/images/photos/image-2.jpeg'
 import image3 from '@/images/photos/image-3.jpeg'
@@ -126,28 +126,28 @@ function Resume() {
     {
       company: 'Deep Dive',
       title: 'Data Analyst & Developer',
-      logo: logoPlanetaria,
+      logo: logoDeepDive,
       start: 'Dec, 2021',
       end: 'Sep, 2022'
     },
     {
       company: 'ITAM',
       title: 'Server Room Manager',
-      logo: logoAirbnb,
+      logo: logoItam,
       start: 'Dec, 2019',
       end: 'Dec, 2021',
     },
     {
       company: 'Analysic Nabla',
       title: 'Data Analyst & Developer',
-      logo: logoFacebook,
+      logo: logoAnalysicNabla,
       start: 'Feb, 2019',
       end: 'Dec, 2019',
     },
     {
       company: 'AIESEC in Mexico',
       title: 'IT Manager',
-      logo: logoStarbucks,
+      logo: logoAiesec,
       start: 'Dec, 2019',
       end: 'Dec, 2020',
     },
@@ -193,8 +193,8 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Contact
+      <Button href="https://drive.google.com/uc?id=1GWQFM81gqhszavvgRmXTTMmepHZ6yQWi&export=download" variant="secondary" className="group mt-6 w-full" >
+          Download Public CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>

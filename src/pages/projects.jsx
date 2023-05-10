@@ -8,6 +8,9 @@ import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoDOMO from '@/images/logos/just_logo.svg'
+import logoSanwis from '@/images/logos/sanwis.jpg'
+import logoWaphl from '@/images/logos/waphl.png'
 
 
 const personal_projects = [
@@ -16,21 +19,21 @@ const personal_projects = [
     description:
       'We transitioned from natural language to The Graph code.',
     link: { href: 'http://domopro.xyz/', label: 'domopro.xyz' },
-    logo: logoPlanetaria,
+    logo: logoDOMO,
   },
   {
     name: 'App DOMO',
     description:
       'A better Quora, for communities who want to reward wisdom sharers.',
-    link: { href: 'app.domopro.xyz', label: 'app.domopro.xyz' },
-    logo: logoAnimaginary,
+    link: { href: 'http://app.domopro.xyz/', label: 'app.domopro.xyz' },
+    logo: logoDOMO,
   },
   {
     name: 'Bot Trading',
     description:
       'Private Trading Bot for Binance',
     link: { href: 'https://github.com/iA-DeFi/tradingBot', label: 'github.com' },
-    logo: logoHelioStream,
+    logo: logoCosmos,
   }
 ]
 
@@ -40,7 +43,7 @@ const projects = [
     description:
       'We transitioned from natural language to The Graph code.',
     link: { href: 'https://ethglobal.com/showcase/waphl-wcfmy', label: 'ethglobal.com' },
-    logo: logoPlanetaria,
+    logo: logoWaphl,
   },
   {
     name: 'Queb3',
@@ -54,21 +57,21 @@ const projects = [
     description:
       'Create your own NFT using your feelings and experiencces with your friends',
     link: { href: 'https://github.com/D9J9V/Hackathon-', label: 'github.com' },
-    logo: logoHelioStream,
+    logo: logoPlanetaria,
   },
   {
     name: 'Sanwis',
     description:
       'App for restaurateurs. Upload your menu on Excel and start charging in dollars (USDC). Powered by Solana Pay.',
     link: { href: 'https://hackathon.etherfuse.com/projects/63fba85f3f991a91a67b0c90', label: 'etherfuse.com' },
-    logo: logoCosmos,
+    logo: logoSanwis,
   },
   {
     name: 'DOMO',
     description:
       'Purchase and sale of real estate through blockchain',
     link: { href: 'https://ethglobal.com/showcase/domo-5kv83', label: 'ethglobal.com' },
-    logo: logoOpenShuttle,
+    logo: logoDOMO,
   },
 ]
 
