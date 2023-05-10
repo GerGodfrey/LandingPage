@@ -26,17 +26,6 @@ function SocialLink({ className, href, children, icon: Icon }) {
   )
 }
 
-function MailIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
-      />
-    </svg>
-  )
-}
-
 export default function About() {
   return (
     <>
@@ -44,7 +33,7 @@ export default function About() {
         <title>About - Ger Godfrey</title>
         <meta
           name="description"
-          content="I’m Ger Godfrey. I live in Mexico City, where I design the dreams."
+          content="I am Ger Godfrey. I live in Mexico City, where I design the dreams."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -61,13 +50,13 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Ger Godfrey. I live in Mexico City, where I design the dreams.
+              Im Ger Godfrey. I live in Mexico City, where I design the dreams.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
               Since I was 10 years old, without knowing why, I knew that I had to study computer engineering.
-              That's how I embarked on the path of "Hello World" since my middle school. I took classes in C, C++, Pascal...
-              but like any child, I didn't pay attention.
+              That is how I embarked on the path of :Hello World: since my middle school. I took classes in C, C++, Pascal...
+              but like any child, I didnt pay attention.
               </p>
               <p>
               During high school, I continued to learn about technology, computer networks, and even made a few drawings in Flash.
@@ -78,22 +67,22 @@ export default function About() {
               When I entered university, I left everything behind and started studying engineering...
               but ITAM would teach me things beyond programming. I learned about philosophy, contemporary issues, economics,
               seeing how people speak more than 3 languages, travel all the time... and my mind opened up like a blank notebook...
-              I wanted to learn things I hadn't wanted to learn before.
+              I wanted to learn things I hadnt wanted to learn before.
               </p>
               <p>
               After some time and many diversions, it was time to enter the workforce, but I had already been working for quite some time!!
               I continued to build in AI companies, but during the pandemic, I learned about Blockchain and Web 3.0
-              (I learned technical and fundamental analysis, ICOs, IPOs, use of DApps, etc.).
-              However, it wasn't until 2022 that I started developing on this technology and fate also left me without a job.
+              I learned technical and fundamental analysis, ICOs, IPOs, use of DApps, etc.
+              However, it wasnt until 2022 that I started developing on this technology and fate also left me without a job.
               </p>
               <p>
                 The world of Blockchain is incredibly vast, I started competing in hackathons, meeting artist and developer people.
-                Time passed so quickly that I have been living as a freelancer for 7 months without realizing it, I have founded (still unsuccessfully) 
+                Time passed so quickly that I have been living as a freelancer for 7 months without realizing it, I have founded still unsuccessfully
                 2 companies, learned more programming languages, and continue to meet incredible people from whom I like to learn everything!!
               </p>
               <p>
               Now I am eager to perfect my professional skills and travel the world, because in these last few months,
-              I have traveled more than I had been able to do in my entire life!!! :heart:
+              I have traveled more than I had been able to do in my entire life!!!
               So remember, the attempt +1 can be THE ATTEMPT.
               </p>
             </div>
@@ -112,13 +101,6 @@ export default function About() {
               <SocialLink href="https://www.linkedin.com/in/godfreycasta%C3%B1eda/" icon={LinkedInIcon} className="mt-4">
                 Follow on LinkedIn
               </SocialLink>
-              {/* <SocialLink
-                href="mailto:spencer@planetaria.tech"
-                icon={MailIcon}
-                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
-              >
-                spencer@planetaria.tech
-              </SocialLink> */}
             </ul>
           </div>
         </div>
