@@ -201,6 +201,29 @@ function Resume() {
   )
 }
 
+async function callAPI() {
+  const response =await fetch('http://ec2-3-142-196-47.us-east-2.compute.amazonaws.com:8000/');
+  const data = await response.json();
+  console.log(data)
+}
+
+function Chat() {
+
+  return (
+    <div>
+      <h2 className='px-8 py-8 mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
+          Speak with my GG-Bot
+      </h2>
+      <div className='-my-4 flex justify-center space-x-5'>
+        <input type="text" id="question" name="question" 
+          className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+        <button className='inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70' type="submit" onClick={callAPI}>Submit</button>
+    </div>
+    </div>
+    
+  )
+}
+
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
@@ -283,7 +306,9 @@ export default function Home({ }) {
             <Resume />
           </div>
         </div>
+        <Chat/>
       </Container>
+      
     </>
   )
 }
