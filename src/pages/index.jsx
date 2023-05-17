@@ -202,7 +202,8 @@ function Resume() {
 }
 
 async function callAPI() {
-  const response =await fetch('http://ec2-3-142-196-47.us-east-2.compute.amazonaws.com:8000/');
+  
+  const response =await fetch('http://ec2-3-137-218-85.us-east-2.compute.amazonaws.com:8000/');
   const data = await response.json();
   console.log(data)
 }
