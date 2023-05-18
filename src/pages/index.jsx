@@ -202,10 +202,10 @@ function Resume() {
 }
 
 async function callAPI() {
-  
-  const response =await fetch('http://ec2-3-137-218-85.us-east-2.compute.amazonaws.com:8000/');
-  const data = await response.json();
-  console.log(data)
+  let xmlHttpReq = new XMLHttpRequest();
+  xmlHttpReq.open("GET", "http://ec2-3-137-218-85.us-east-2.compute.amazonaws.com:443/", false);
+  xmlHttpReq.send(null);
+  console.log(xmlHttpReq.responseText)
 }
 
 function Chat() {
