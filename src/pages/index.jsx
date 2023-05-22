@@ -22,6 +22,7 @@ import image4 from '@/images/photos/image-4.jpeg'
 import image5 from '@/images/photos/image-5.jpeg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
+import { useState } from 'react';
 
 function MailIcon(props) {
   return (
@@ -201,29 +202,29 @@ function Resume() {
   )
 }
 
-async function callAPI() {
-  let xmlHttpReq = new XMLHttpRequest();
-  xmlHttpReq.open("GET", "http://ec2-3-137-218-85.us-east-2.compute.amazonaws.com:443/", false);
-  xmlHttpReq.send(null);
-  console.log(xmlHttpReq.responseText)
-}
 
-function Chat() {
 
-  return (
-    <div>
-      <h2 className='px-8 py-8 mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
-          Speak with my GG-Bot
-      </h2>
-      <div className='-my-4 flex justify-center space-x-5'>
-        <input type="text" id="question" name="question" 
-          className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-        <button className='inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70' type="submit" onClick={callAPI}>Submit</button>
-    </div>
-    </div>
+// function Chat() {
+
+//   return (
+//     <div>
+//       <h2 className='px-8 py-8 mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
+//           Speak with my GG-Bot
+//       </h2>
+//       <form className='flex-auto justify-center items-center' onSubmit={callAPI} >
+//         <div className='-my-4 flex justify-center space-x-5'>
+//           <input type="text" id="question" name="question" value={userQuestion} onChange={e => setUserQuestion(e.target.value)} placeholder="ejemplo@correo.com"
+//             className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+//               focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+//               dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+
+//           <button className='inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70' type="submit" onClick={callAPI}>Submit</button>
+//         </div>
+//       </form>
+//     </div>
     
-  )
-}
+//   )
+// }
 
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
@@ -253,6 +254,20 @@ function Photos() {
 }
 
 export default function Home({ }) {
+
+  const [userQuestion, setUserQuestion] = useState("")
+  const [botAnswer, setBotAnswer] = useState("")
+
+  async function callAPI() {
+    const text = "https://3.143.238.180/questions/}"+userQuestion
+    console.log(text)
+    const response = await fetch(text);
+    const jsonData = await response.json();
+    const res = "🤖 ggBot:  " + jsonData.Response;
+    setBotAnswer(res);
+  
+  }
+
   return (
     <>
       <Head>
@@ -307,7 +322,25 @@ export default function Home({ }) {
             <Resume />
           </div>
         </div>
-        <Chat/>
+        
+        <div className='space-y-6'>
+          <h2 className='px-8 py-8 mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
+              Speak with my GG-Bot
+          </h2>
+            <div className='-my-4 flex justify-center space-x-5 '>
+              <input type="text" id="question" value={userQuestion} onChange={e => setUserQuestion(e.target.value)} placeholder="Your question"
+                className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                  focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+
+              <button onClick={callAPI} className='inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70' type="submit">Submit</button>
+            </div>
+          <input type="text" id="question" value={botAnswer} onChange={e => setBotAnswer(e.target.value)} placeholder= {botAnswer}
+              className=" space-x-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+        </div>
+        
       </Container>
       
     </>
