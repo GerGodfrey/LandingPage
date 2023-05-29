@@ -5,8 +5,6 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoAnimaginary from '@/images/logos/animaginary.svg'
 import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoDOMO from '@/images/logos/just_logo.svg'
 import logoSanwis from '@/images/logos/sanwis.jpg'
@@ -93,12 +91,12 @@ export default function Projects() {
         <title>Projects - Ger Godfrey</title>
         <meta
           name="description"
-          content="Things that I have shipped during this time . . ."
+          content="Experience in program and system development"
         />
       </Head>
       <SimpleLayout
-        title="Things that I have shipped during this time . . ."
-        intro="These are some public projects focused on AI and Blockchain technology. However, the libraries or frameworks are constantly changing."
+        title="Experience in program and system development"
+        intro="Here are some Open Source projects I would like to share with you, primarily focused on Blockchain and AI. I started working on these projects just last year, and I'm excited to showcase them."
       >
 
 

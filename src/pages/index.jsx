@@ -20,6 +20,11 @@ import image2 from '@/images/photos/image-2.jpeg'
 import image3 from '@/images/photos/image-3.jpeg'
 import image4 from '@/images/photos/image-4.jpeg'
 import image5 from '@/images/photos/image-5.jpeg'
+import img_scaling from '@/images/logos/hackatons/scaling.svg'
+import img_sf from '@/images/logos/hackatons/sf.svg'
+import img_mx from '@/images/logos/hackatons/mx.jpg'
+import img_etherfuse from '@/images/logos/hackatons/etherfuse.jpeg'
+import img_gear from '@/images/logos/hackatons/gear.png'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { useState } from 'react';
@@ -202,29 +207,78 @@ function Resume() {
   )
 }
 
+function Hacks_winner() {
+  let resume = [
+    {
+      company: 'Ethereum Foundation Scaling',
+      title: 'DOMO',
+      logo: img_scaling,
+      start: 'Feb, 2023'
+    },
+    {
+      company: 'Solana Etherfuse',
+      title: 'Sanwis',
+      logo: img_etherfuse,
+      start: 'Apr, 2023'
+    },
+    {
+      company: 'Web 3 University Mexico',
+      title: 'Decentralized Diary',
+      logo: img_gear,
+      start: 'Dic, 2022'
+    },
+    {
+      company: 'Ethereum Foundation SF',
+      title: 'Queb 3',
+      logo: img_sf,
+      start: 'Nov, 2022'
+    },
+    {
+      company: 'Ethereum Foundation Mexico',
+      title: 'Waphl',
+      logo: img_mx,
+      start: 'Aug, 2022'
+    },
+  
+  ]
 
-
-// function Chat() {
-
-//   return (
-//     <div>
-//       <h2 className='px-8 py-8 mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
-//           Speak with my GG-Bot
-//       </h2>
-//       <form className='flex-auto justify-center items-center' onSubmit={callAPI} >
-//         <div className='-my-4 flex justify-center space-x-5'>
-//           <input type="text" id="question" name="question" value={userQuestion} onChange={e => setUserQuestion(e.target.value)} placeholder="ejemplo@correo.com"
-//             className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
-//               focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
-//               dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
-
-//           <button className='inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70' type="submit" onClick={callAPI}>Submit</button>
-//         </div>
-//       </form>
-//     </div>
-    
-//   )
-// }
+  return (
+    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        <BriefcaseIcon className="h-6 w-6 flex-none" />
+        <span className="ml-3">Hackatons Won</span>
+      </h2>
+      <ol className="mt-6 space-y-4">
+        {resume.map((role, roleIndex) => (
+          <li key={roleIndex} className="flex gap-4">
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+            </div>
+            <dl className="flex flex-auto flex-wrap gap-x-2">
+              <dt className="sr-only">Company</dt>
+              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                {role.company}
+              </dd>
+              <dt className="sr-only">Role</dt>
+              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                {role.title}
+              </dd>
+              <dt className="sr-only">Date</dt>
+              <dd
+                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                aria-label={`${role.start.label ?? role.start}`}
+              >
+                <time dateTime={role.start.dateTime ?? role.start}>
+                  {role.start.label ?? role.start}
+                </time>{' '}
+              </dd>
+            </dl>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
 
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
@@ -259,7 +313,7 @@ export default function Home({ }) {
   const [botAnswer, setBotAnswer] = useState("")
 
   async function callAPI() {
-    const text = "https://3.143.238.180/questions/}"+userQuestion
+    const text = "http://18.117.8.174/questions/}"+userQuestion
     console.log(text)
     const response = await fetch(text);
     const jsonData = await response.json();
@@ -282,13 +336,13 @@ export default function Home({ }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Full Stack | Blockchain Developer | Founder
+              Full Stack Developer
           </h1>
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-400 dark:text-zinc-100 sm:text-3xl">
+          Blockchain | Data Analyst | Data Engineer
+          </h2>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            With over 13 years of work experience and more than 10 years of programming experience, I am
-            always looking to contribute to a harmonious and results-driven work environment. My strong
-            imagination and sense of humor drive me to find innovative solutions both in my personal and
-            professional life.
+          Welcome to my personal page, where you will find a highly passionate individual with a strong desire to learn intriguing things. I have spent my entire life challenging myself, always reaching a goal – not necessarily the one planned, but definitely a goal. With several years of experience in the workforce, I always strive to contribute by establishing a harmonious and collaborative work environment. My great imagination allows me to find new paths in any challenge I face.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -316,10 +370,10 @@ export default function Home({ }) {
       </Container>
       <Photos />
       <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            
+        <div className=" mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+          <div className="space-y-10 lg:pl-16 xl:pl-24 ">
             <Resume />
+            <Hacks_winner />
           </div>
         </div>
         
@@ -327,6 +381,9 @@ export default function Home({ }) {
           <h2 className='px-8 py-8 mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100'>
               Speak with my GG-Bot
           </h2>
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          You can engage with my personal chatbot in English or Spanish. Feel free to ask questions about my professional career, personal interests, or even my university experience. 
+          </p>
             <div className='-my-4 flex justify-center space-x-5 '>
               <input type="text" id="question" value={userQuestion} onChange={e => setUserQuestion(e.target.value)} placeholder="Your question"
                 className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
