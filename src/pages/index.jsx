@@ -313,7 +313,7 @@ export default function Home({ }) {
   const [botAnswer, setBotAnswer] = useState("")
 
   async function callAPI() {
-    const text = "http://18.117.8.174/questions/}"+userQuestion
+    const text = "https://18.117.8.174/questions/}"+userQuestion
     console.log(text)
     const response = await fetch(text);
     const jsonData = await response.json();
