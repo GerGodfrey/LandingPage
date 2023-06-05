@@ -332,9 +332,8 @@ export default function Home({ }) {
       body: bodyContent,
       headers: headersList
     });
-    console.log(response)
     let data = await response.text();
-    console.log(String(data))
+    data = data.substring(1, data.length - 1);
     const res = "🤖 ggBot:  " + data;
     setBotAnswer(res);
 }
