@@ -322,6 +322,23 @@ export default function Home({ }) {
   
   }
 
+  async function query() {
+    let headersList = {"Content-Type": "application/json"}
+     
+    let bodyContent = JSON.stringify({"question": userQuestion});
+     
+    let response = await fetch("https://ggbot-48h7.onrender.com/api/v1/prediction/212fad4d-c892-4965-ae98-0a90cfd89f42", { 
+      method: "POST",
+      body: bodyContent,
+      headers: headersList
+    });
+    console.log(response)
+    let data = await response.text();
+    console.log(String(data))
+    const res = "🤖 ggBot:  " + data;
+    setBotAnswer(res);
+}
+
   return (
     <>
       <Head>
@@ -390,7 +407,7 @@ export default function Home({ }) {
                   focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
                   dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
 
-              <button onClick={callAPI} className='inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70' type="submit">Submit</button>
+              <button onClick={query} className='inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70' type="submit">Submit</button>
             </div>
           <input type="text" id="question" value={botAnswer} onChange={e => setBotAnswer(e.target.value)} placeholder= {botAnswer}
               className=" space-x-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
@@ -399,7 +416,7 @@ export default function Home({ }) {
         </div>
         
       </Container>
-      
+
     </>
   )
 }
